@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>غرفة عمليات K92</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0f0f0f;
+            color: white;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 { text-align: center; color: #f1c40f; text-shadow: 2px 2px #000; margin-bottom: 20px; }
+
+        .main-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 20px;
+        }
+
+        /* قائمة الأسماء */
+        .members-pool {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scroll-area {
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .members-pool h3 { border-bottom: 2px solid #f1c40f; padding-bottom: 10px; text-align: center; font-size: 1.1rem; }
+
+        /* ساحات التوزيع */
+        .teams-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        /* جعل الحشود الثانوية تأخذ عرض كامل في الأسفل */
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .team-card {
+            background: #222;
+            border-radius: 12px;
+            padding: 15px;
+            min-height: 180px;
+            border: 1px solid #444;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .team-card h4 { margin: 0 0 15px 0; padding: 8px; border-radius: 5px; text-align: center; font-size: 1rem; }
+
+        /* ألوان التخصصات */
+        .attack { border-top: 5px solid #ff4d4d; } .attack h4 { background: #ff4d4d; }
+        .defense { border-top: 5px solid #2ecc71; } .defense h4 { background: #2ecc71; }
+        .barracks { border-top: 5px solid #f39c12; } .barracks h4 { background: #f39c12; }
+        .archers { border-top: 5px solid #3498db; } .archers h4 { background: #3498db; }
+        .secondary { border-top: 5px solid #95a5a6; border-style: dashed; } .secondary h4 { background: #555; }
+
+        /* أيقونة الاسم */
+        .member-item {
+            background: #f1c40f;
+            color: #000;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            cursor: grab;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-align: center;
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .member-item:active { cursor: grabbing; }
+
+        .drop-zone { flex-grow: 1; min-height: 50px; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #f1c40f; }
+    </style>
+</head>
+<body>
+
+    <h1>🪖 لوحة قيادة تحالف K92</h1>
+
+    <div class="main-layout">
+        <div class="members-pool">
+            <h3>قائمة الأسماء</h3>
+            <div class="scroll-area drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)" id="pool">
+                <!-- الأسماء مستخرجة من الصور -->
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p1">7 October</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p2">جنرال طويق</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p3">أكتيمور</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p4">صياد فلسطين</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p5">صقر فلسطين</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p6">LIST DEATH</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p7">الاخطبوووووط</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p8">البآرون</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p9">GORDO</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p10">الطيار Iq</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p11">حآيل</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p12">الشـيـب اعدام</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p13">السفياني</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p14">N E N O</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p15">M ALBATAR IQ92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p16">ظل الرئيس</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p17">عـرفه</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p18">الـعـقـيـد</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p19">STORM 92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p20">KareemM</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p21">مستلعن 92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p22">B E L L YY</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p23">Flint J</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p24">سهم FAHAD</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p25">JULIA 92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p26">صنكووور</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p27">أبو وجد</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p28">الأسطورره</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p29">ابومسلم 92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p30">العملاق المفترس</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p31">مشاغب كنوني</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p32">المؤسس عثمان</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p33">أريـج</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p34">خيران</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p35">المج92رم</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p36">Wail Blindo</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p37">برق الجنابي</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p38">طه عادل 92</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p39">ابو تركي XX</div>
+                <div class="member-item" draggable="true" ondragstart="drag(event)" id="p40">Abo Taim</div>
+            </div>
+        </div>
+
+        <div class="teams-container">
+            <div class="team-card attack">
+                <h4>⚔️ فريق الهجوم</h4>
+                <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <div class="team-card defense">
+                <h4>🛡️ فريق الدفاع بمملكتنا</h4>
+                <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <div class="team-card barracks">
+                <h4>🐎 حشود ثكنة</h4>
+                <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <div class="team-card archers">
+                <h4>🏹 حشود رماه</h4>
+                <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+
+            <!-- قائمة الحشود الثانوية -->
+            <div class="team-card secondary full-width">
+                <h4>⚙️ حشود ثانوية</h4>
+                <div class="drop-zone" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function allowDrop(ev) { ev.preventDefault(); }
+        function drag(ev) { ev.dataTransfer.setData("text", ev.target.id); }
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            var draggedElement = document.getElementById(data);
+            let target = ev.target;
+            while (target && !target.classList.contains('drop-zone')) { target = target.parentElement; }
+            if (target) { target.appendChild(draggedElement); }
+        }
+    </script>
+</body>
+</html>
